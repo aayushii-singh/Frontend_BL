@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Layout with Gallery</title>
+    <title>Advanced Layout with Gallery & Cards</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -12,6 +12,35 @@
             padding: 0;
             font-family: 'Poppins', sans-serif;
         }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  .card {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  } 
+  .card img {
+    max-width: 100%;
+  }
+  .card .text {
+    padding: 0 20px 20px;
+  }
+  .card .text > button {
+    background: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    }
+
+  .card:nth-child(1) {
+    width: 420px;
+  }
         body {
             display: flex;
             min-height: 100vh;
@@ -30,12 +59,11 @@
             height: 100vh;
         }
         .logo {
-    display: block;
-    margin: 0 auto 15px;
-    width: 50px; /* Adjust as needed */
-    height: auto; /* Maintains aspect ratio */
-}
-        
+            display: block;
+            margin: 0 auto 15px;
+            width: 50px;
+            height: auto;
+        }
         nav ul {
             list-style: none;
             padding: 0;
@@ -72,7 +100,7 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
+            transition: transform 0.3s ease-in-out;
         }
         .inner-col:hover {
             transform: scale(1.02);
@@ -108,10 +136,6 @@
             border-radius: 5px;
             margin: 1em auto;
             display: block;
-            transition: background 0.3s;
-        }
-        .dark-mode-btn:hover {
-            background: #2C3E50;
         }
         .dark-mode {
             background: #2C3E50;
@@ -127,8 +151,6 @@
         .dark-mode header, .dark-mode footer {
             background: #1E8449;
         }
-
-        /* Photo Gallery Styles */
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -153,28 +175,37 @@
         .gallery img:hover {
             transform: scale(1.1);
         }
-
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .inner-row {
-                flex-direction: column;
-            }
-            aside {
-                margin-left: 0;
-                margin-top: 1.5em;
-            }
-            .gallery img {
-                max-width: 45%;
-            }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            margin-left: 11%;
         }
+        .card {
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        .card img {
+            max-width: 100%;
+        }
+        .card .text {
+            padding: 20px;
+        }
+        .card .text > button {
+            background: gray;
+            border: 0;
+            color: white;
+            padding: 10px;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
     <nav>
         <img src="images/i2.png" alt="Logo" class="logo">
-
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -185,32 +216,68 @@
     <div class="outer-col-2">
         <header>Header</header>
         <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Mode</button>
-        
         <div class="inner-row">
             <div class="inner-col">
-                <article>Content</article>
-
-                <!-- Photo Gallery Section -->
+   
                 <h2 class="gallery-heading">Photo Gallery</h2>
                 <div class="gallery">
                     <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 2">
+                    <img src="images/i1.jpg" alt="Image 3">
                     <img src="images/i1.jpg" alt="Image 1">
-                    <img src="images/i1.jpg" alt="Image 1">
-                    <img src="images/i1.jpg" alt="Image 1">
-                    <img src="images/i1.jpg" alt="Image 1">
-                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 2">
+                    <img src="images/i1.jpg" alt="Image 3">
                 </div>
+<div>
+    <h2 class="gallery-heading">Cards Grid</h2>
 
+                <main class="cards">
+                    <article class="card">
+                        <img src="images/i1.jpg" alt="Image 1">
+                      <div class="text">
+                        <h3>Seamlessly visualize quality</h3>
+                        <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
+                        <button>Here's why</button>
+                      </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/i1.jpg" alt="Image 1">
+                      <div class="text">
+                        <h3>Completely Synergize</h3>
+                        <p>Dramatically engage seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.</p>
+                        <button>Here's how</button>
+                      </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/i1.jpg" alt="Image 1">
+                      <div class="text">
+                        <h3>Dynamically Procrastinate</h3>
+                        <p>Completely synergize resource taxing relationships via premier niche markets.</p>
+                        <button>Read more</button>
+                      </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/i1.jpg" alt="Image 1">
+                      <div class="text">
+                        <h3>Best in class</h3>
+                        <p>Imagine jumping into that boat, and just letting it sail wherever the wind takes you...</p>
+                        <button>Just do it...</button>
+                      </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/i1.jpg" alt="Image 1">
+                      <div class="text">
+                        <h3>Dynamically innovate supply chains</h3>
+                        <p>Holisticly predominate extensible testing procedures for reliable supply chains.</p>
+                        <button>Here's why</button>
+                      </div>
+                  </main>
+                  </div>
                 <footer>Footer</footer>
             </div>
             <aside>Sidebar</aside>
         </div>
     </div>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+    <script>function toggleDarkMode() {document.body.classList.toggle('dark-mode');}</script>
 </body>
 </html>
