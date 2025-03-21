@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+            background: #f9f9f9;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav {
+            background: #2C3E50;
+            color: white;
+            flex: 1;
+            padding: 1.5em;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .outer-col-2 {
+            display: flex;
+            flex-direction: column;
+            flex: 5;
+        }
+        header, footer {
+            background: #27AE60;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+        }
+        .inner-row {
+            display: flex;
+            flex-direction: row;
+            padding: 1.5em;
+        }
+        .inner-col {
+            flex: 4;
+            padding: 1.5em;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
+        }
+        .inner-col:hover {
+            transform: scale(1.02);
+        }
+        article {
+            min-height: 60vh;
+            padding: 1em;
+        }
+        aside {
+            background: #F39C12;
+            color: white;
+            flex: 1;
+            padding: 1.5em;
+            text-align: center;
+            border-radius: 10px;
+            margin-left: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        aside:hover {
+            background: #e67e22;
+        }
+        footer {
+            margin-top: 1.5em;
+            border-radius: 0 0 10px 10px;
+        }
+        .dark-mode-btn {
+            background: #34495E;
+            color: white;
+            padding: 0.7em 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 1em auto;
+            display: block;
+            transition: background 0.3s;
+        }
+        .dark-mode-btn:hover {
+            background: #2C3E50;
+        }
+        .dark-mode {
+            background: #2C3E50;
+            color: white;
+        }
+        .dark-mode .inner-col {
+            background: #3B3B3B;
+            color: white;
+        }
+        .dark-mode aside {
+            background: #555;
+        }
+        .dark-mode header, .dark-mode footer {
+            background: #1E8449;
+        }
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .inner-row {
+                flex-direction: column;
+            }
+            aside {
+                margin-left: 0;
+                margin-top: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="outer-col-2">
+        <header>Header</header>
+        <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Mode</button>
+        <div class="inner-row">
+            <div class="inner-col">
+                <article>Content</article>
+                <footer>Footer</footer>
+            </div>
+            <aside>Sidebar</aside>
+        </div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
