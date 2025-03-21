@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Layout</title>
+    <title>Advanced Layout with Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -29,6 +29,13 @@
             top: 0;
             height: 100vh;
         }
+        .logo {
+    display: block;
+    margin: 0 auto 15px;
+    width: 50px; /* Adjust as needed */
+    height: auto; /* Maintains aspect ratio */
+}
+        
         nav ul {
             list-style: none;
             padding: 0;
@@ -120,6 +127,33 @@
         .dark-mode header, .dark-mode footer {
             background: #1E8449;
         }
+
+        /* Photo Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 1.5em;
+        }
+        .gallery-heading {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 1em;
+            font-weight: bold;
+            color: #333;
+        }
+        .gallery img {
+            margin: 10px;
+            border: 3px solid #000;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            max-width: 30%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -131,11 +165,16 @@
                 margin-left: 0;
                 margin-top: 1.5em;
             }
+            .gallery img {
+                max-width: 45%;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
+        <img src="images/i2.png" alt="Logo" class="logo">
+
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -146,14 +185,28 @@
     <div class="outer-col-2">
         <header>Header</header>
         <button class="dark-mode-btn" onclick="toggleDarkMode()">Toggle Mode</button>
+        
         <div class="inner-row">
             <div class="inner-col">
                 <article>Content</article>
+
+                <!-- Photo Gallery Section -->
+                <h2 class="gallery-heading">Photo Gallery</h2>
+                <div class="gallery">
+                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 1">
+                    <img src="images/i1.jpg" alt="Image 1">
+                </div>
+
                 <footer>Footer</footer>
             </div>
             <aside>Sidebar</aside>
         </div>
     </div>
+
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
